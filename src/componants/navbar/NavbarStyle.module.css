@@ -1,0 +1,151 @@
+.navbarCustom {
+    background: linear-gradient(135deg, #1a1a4e 0%, #0f0f30 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 244, 183, 0.1);
+  }
+  
+  .brand {
+    color: #ffd700 !important;
+    font-weight: 800;
+    font-size: 1.6rem;
+    transition: all 0.4s ease;
+    letter-spacing: 0.5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  
+  .brand:hover {
+    color: #6EACDA !important;
+    text-shadow: 0 0 15px rgba(110, 172, 218, 0.6);
+    transform: scale(1.02);
+  }
+  
+  .toggler {
+    border: none;
+    padding: 0.5rem;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+  }
+  
+  .toggler:hover {
+    opacity: 0.8;
+  }
+  
+  .togglerIcon {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #ffd700;
+    margin: 5px 0;
+    transition: all 0.4s ease;
+    border-radius: 3px;
+  }
+  
+  .toggler[aria-expanded="true"] .togglerIcon {
+    background-color: #6EACDA;
+  }
+  
+  .toggler[aria-expanded="true"] .togglerIcon:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .toggler[aria-expanded="true"] .togglerIcon:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .toggler[aria-expanded="true"] .togglerIcon:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .navbarCollapse {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .navLink {
+    font-weight: 600;
+    color: #e6e6e6 !important;
+    margin: 0 8px;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    font-size: 1.05rem;
+  }
+  
+  .navLink:hover {
+    color: #ffffff !important;
+    background: rgba(255, 215, 0, 0.15);
+    transform: translateY(-3px);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  
+  .navLink::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: all 0.3s ease;
+  }
+  
+  .navLink:hover::before {
+    width: 70%;
+  }
+  
+  .logoutBtn {
+    background: linear-gradient(135deg, #d10000 0%, #8b0000 100%);
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    padding: 8px 22px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(139, 0, 0, 0.2);
+    margin-left: 10px;
+  }
+  
+  .logoutBtn:hover {
+    background: linear-gradient(135deg, #b80000 0%, #6b0000 100%);
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 992px) {
+    .navbarCollapse {
+      background: linear-gradient(135deg, #1a1a4e 0%, #0f0f30 100%);
+      padding: 15px 20px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      margin-top: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      border-top: none;
+    }
+  
+    .navLink {
+      margin: 10px 0;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    }
+  
+    .navLink:hover {
+      background: rgba(255, 215, 0, 0.1);
+    }
+  
+    .navLink::before {
+      display: none;
+    }
+  
+    .logoutBtn {
+      margin: 15px 0 5px 0;
+      width: 100%;
+      padding: 10px;
+    }
+  }

@@ -1,0 +1,92 @@
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg, #1a1a4e 0%, #0f0f30 100%);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 215, 0, 0.08);
+  }
+  
+  .container h2 {
+    font-size: 2rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .container p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .dashboardButton {
+    flex: 1 1 45%;
+    min-width: 200px;
+    text-align: center;
+    padding: 1.2rem;
+    border-radius: 8px;
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .dashboardButton:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateY(-3px);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  
+  .dashboardButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 215, 0, 0.2),
+      transparent
+    );
+    transition: all 0.5s ease;
+  }
+  
+  .dashboardButton:hover::before {
+    left: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      margin: 2rem 1rem;
+      padding: 1.5rem;
+    }
+  
+    .buttonGroup {
+      flex-direction: column;
+    }
+  
+    .dashboardButton {
+      flex: 1 1 100%;
+    }
+  }
