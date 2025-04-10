@@ -8,9 +8,15 @@ import StudentProfile from "./pages/StudentProfile";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminProfile from "./pages/AdminProfile";
 import AddBook from "./pages/AddBook";
-import EditBook from "./pages/EditBook"; // ✅ imported
+import EditBook from "./pages/EditBook";
 import ProtectedRoute from "./componants/protectedRoute/ProtectedRoute";
 import AdminBooks from "./pages/AdminBooks";
+import EditStudentProfile from "./pages/EditStudentProfile";
+import AdminStudents from "./pages/AdminStudents";
+import AdminStats from "./pages/AdminStats";
+import AdminBorrows from "./pages/AdminBorrows";
+import AdminRecommendations from "./pages/AdminRecommendations";
+import StudentBooks from "./pages/StudentBooks";
 
 function App() {
   return (
@@ -43,7 +49,24 @@ function App() {
           }
         />
 
-        {/* Admin Routes */}
+        <Route
+          path="/student/profile/edit"
+          element={
+            <ProtectedRoute allowedRoles={["ROLE_STUDENT"]}>
+              <EditStudentProfile />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route 
+          path="/student/books" 
+          element={<ProtectedRoute allowedRoles={["ROLE_STUDENT"]}>
+            <StudentBooks />
+          </ProtectedRoute>
+        }
+        />
+
+
         <Route
           path="/admin-dashboard"
           element={
@@ -77,10 +100,44 @@ function App() {
           }
         />
         <Route
-          path="/admin/books/edit/:id" // ✅ added edit route with dynamic ID
+          path="/admin/books/edit/:id"
           element={
             <ProtectedRoute allowedRoles={["ROLE_ADMIN"]}>
               <EditBook />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/students"
+          element={
+            <ProtectedRoute allowedRoles={["ROLE_ADMIN"]}>
+              <AdminStudents />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/stats"
+          element={
+            <ProtectedRoute allowedRoles={["ROLE_ADMIN"]}>
+              <AdminStats />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/borrows"
+          element={
+            <ProtectedRoute allowedRoles={["ROLE_ADMIN"]}>
+              <AdminBorrows />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/recommendations"
+          element={
+            <ProtectedRoute allowedRoles={["ROLE_ADMIN"]}>
+              <AdminRecommendations />
             </ProtectedRoute>
           }
         />

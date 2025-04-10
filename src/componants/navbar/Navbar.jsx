@@ -50,6 +50,11 @@ const Navbar = () => {
             )}
             {user && role === "ROLE_ADMIN" && (
               <>
+              <li className="nav-item">
+                  <Link className={`nav-link ${styles.navLink}`} to="/admin-dashboard" onClick={() => setIsOpen(false)}>
+                    Dashboard
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link className={`nav-link ${styles.navLink}`} to="/admin/profile" onClick={() => setIsOpen(false)}>
                     Profile
@@ -70,6 +75,11 @@ const Navbar = () => {
             {user && role === "ROLE_STUDENT" && (
               <>
                 <li className="nav-item">
+                  <Link className={`nav-link ${styles.navLink}`} to="/student-dashboard" onClick={() => setIsOpen(false)}>
+                    Dashboard
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className={`nav-link ${styles.navLink}`} to="/student/profile" onClick={() => setIsOpen(false)}>
                     Profile
                   </Link>
@@ -79,6 +89,7 @@ const Navbar = () => {
                     Books
                   </Link>
                 </li>
+                
                 <li className="nav-item">
                   <button className={`btn ${styles.logoutBtn}`} onClick={handleLogout}>
                     Logout

@@ -1,92 +1,160 @@
 .container {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 2rem 2.5rem;
-    background: linear-gradient(135deg, #1a1a4e 0%, #0f0f30 100%);
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 215, 0, 0.08);
-  }
-  
-  .container h2 {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #121230 0%, #090920 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 25% 35%, rgba(255, 215, 0, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.04) 0%, transparent 45%);
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffe85c;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: relative;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #dddddd;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  max-width: 600px;
+  z-index: 1;
+  position: relative;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  width: 100%;
+  max-width: 500px;
+  z-index: 1;
+  position: relative;
+}
+
+.dashboardButton {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #121230;
+  background: linear-gradient(135deg, #ffe85c, #fff78b);
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(255, 255, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dashboardButton:hover {
+  background: linear-gradient(135deg, #fff78b, #ffe85c);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 10px 25px rgba(255, 255, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .heading {
     font-size: 2rem;
-    color: #ffd700;
-    margin-bottom: 1rem;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .container p {
-    color: #ccc;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
     text-align: center;
   }
-  
+
+  .subheading {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .dashboardButton {
+    font-size: 1rem;
+    padding: 0.9rem 1.2rem;
+  }
+}
+/* Update the stats section layout for better alignment */
+.statsSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  z-index: 1;
+  position: relative;
+}
+
+.statCard {
+  background: #ffffff10;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: #ffe85c;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  min-width: 180px;
+  text-align: center;
+}
+
+/* Center chart properly */
+.chartContainer {
+  margin: 2rem auto;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media query to center content better on mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
   .buttonGroup {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .statsSection {
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
-  
-  .dashboardButton {
-    flex: 1 1 45%;
-    min-width: 200px;
-    text-align: center;
-    padding: 1.2rem;
-    border-radius: 8px;
-    background: rgba(255, 215, 0, 0.1);
-    color: #ffd700;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .dashboardButton:hover {
-    background: rgba(255, 215, 0, 0.2);
-    transform: translateY(-3px);
-    color: #ffffff;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-  
-  .dashboardButton::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
+
+  .statCard {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 215, 0, 0.2),
-      transparent
-    );
-    transition: all 0.5s ease;
+    max-width: 300px;
   }
-  
-  .dashboardButton:hover::before {
-    left: 100%;
+
+  .chartContainer {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 2rem;
   }
-  
-  @media (max-width: 600px) {
-    .container {
-      margin: 2rem 1rem;
-      padding: 1.5rem;
-    }
-  
-    .buttonGroup {
-      flex-direction: column;
-    }
-  
-    .dashboardButton {
-      flex: 1 1 100%;
-    }
-  }
+}

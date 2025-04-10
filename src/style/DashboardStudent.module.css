@@ -1,0 +1,204 @@
+.dashboardContainer {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #121230 0%, #090920 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboardContainer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 25% 35%, rgba(255, 215, 0, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.04) 0%, transparent 45%);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffe85c;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: relative;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #dddddd;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  max-width: 600px;
+  z-index: 1;
+  position: relative;
+}
+
+.successMessage,
+.errorMessage {
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.successMessage {
+  background: rgba(76, 175, 80, 0.1);
+  color: #9effa1;
+  border: 1px solid #9effa1;
+}
+
+.errorMessage {
+  background: rgba(244, 67, 54, 0.1);
+  color: #ff7b7b;
+  border: 1px solid #ff7b7b;
+}
+
+/* Stats Section */
+.statsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 1;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.statsCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.statCard {
+  background: #ffffff10;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: #ffe85c;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  min-width: 180px;
+  text-align: center;
+}
+
+/* Chart Container */
+.chartContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Section titles */
+.section {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 1000px;
+  z-index: 1;
+  position: relative;
+}
+
+.section h3 {
+  font-size: 1.6rem;
+  color: #ffe85c;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Book Cards */
+.bookList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.bookCard {
+  background: #ffffff0a;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  width: 260px;
+  color: #f5f5f5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease;
+}
+
+.bookCard:hover {
+  transform: scale(1.02);
+}
+
+/* Borrow / Return Buttons */
+.borrowButton,
+.returnButton {
+  margin-top: 0.8rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffe85c, #fff78b);
+  color: #121230;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.borrowButton:disabled {
+  background: #888888;
+  cursor: not-allowed;
+  color: #ddd;
+}
+
+.borrowButton:hover:not(:disabled),
+.returnButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(255, 255, 0, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .statCard {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .bookCard {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .chartContainer {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+  }
+}

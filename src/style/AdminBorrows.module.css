@@ -1,0 +1,66 @@
+.container {
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    background: linear-gradient(135deg, #121230 0%, #2e2e67 98%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    margin-bottom: 2rem;
+  }
+  
+  .error {
+    background-color: #ff4c4c;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+  }
+  
+  .table th,
+  .table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .table th {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  
+  .table td {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+  }
+  
+  .overdue {
+    color: #ff4c4c;
+    font-weight: bold;
+    background-color: rgba(255, 76, 76, 0.1);
+    border-left: 4px solid #ff4c4c;
+  }
+  

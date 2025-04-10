@@ -84,11 +84,7 @@ const AdminProfile = () => {
               <span className={styles.detailLabel}>Department:</span>
               <span className={styles.detailValue}>{profile.department || "Not provided"}</span>
             </div>
-            <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Designation:</span>
-              <span className={styles.detailValue}>{profile.designation || "Not provided"}</span>
-            </div>
-
+            
             <button
               onClick={() => setIsEditing(true)}
               className={styles.editButton}

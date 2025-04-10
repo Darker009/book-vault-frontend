@@ -1,17 +1,18 @@
-// src/pages/admin/EditAdminProfile.jsx
+// src/pages/student/EditStudentProfile.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../auth/AuthContext";
-import ProfileService from "../../service/ProfileService";
+import { useAuth } from "../auth/AuthContext";
+import ProfileService from "../service/ProfileService";
 import styles from "../style/EditStyle.module.css";
 
-const EditAdminProfile = () => {
+const EditStudentProfile = () => {
   const { user } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     department: "",
-    designation: "",
+    section: "",
   });
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -23,8 +24,9 @@ const EditAdminProfile = () => {
         setFormData({
           name: profile.name || "",
           department: profile.department || "",
-          designation: profile.designation || "",
+          section: profile.section || "",
         });
+
       } catch (err) {
         setError("Failed to load profile");
       }
@@ -46,7 +48,7 @@ const EditAdminProfile = () => {
         userId: user.id,
         ...formData,
       });
-      navigate("/admin/profile"); // ✅ redirect on success
+      navigate("/student/profile"); // ✅ redirect after update
     } catch (err) {
       setError("Update failed");
     }
@@ -54,7 +56,7 @@ const EditAdminProfile = () => {
 
   return (
     <div className={styles.profileContainer}>
-      <h2>Edit Admin Profile</h2>
+      <h2>Edit Student Profile</h2>
       {error && <p className={styles.errorMessage}>{error}</p>}
 
       <form onSubmit={handleSubmit} className={styles.profileForm}>
@@ -78,21 +80,22 @@ const EditAdminProfile = () => {
           />
         </div>
         <div className={styles.formGroup}>
-          <label>Designation</label>
+          <label>Section</label>
           <input
             type="text"
-            name="designation"
-            value={formData.designation}
+            name="section"
+            value={formData.section}
             onChange={handleChange}
           />
         </div>
+
         <div className={styles.buttonGroup}>
           <button type="submit" className={styles.saveButton}>
             Save Changes
           </button>
-          <button 
-            type="button" 
-            onClick={() => navigate("/admin/profile")}
+          <button
+            type="button"
+            onClick={() => navigate("/student/profile")}
             className={styles.cancelButton}
           >
             Cancel
@@ -103,4 +106,4 @@ const EditAdminProfile = () => {
   );
 };
 
-export default EditAdminProfile;
+export default EditStudentProfile;

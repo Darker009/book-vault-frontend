@@ -1,0 +1,96 @@
+.container {
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    background: linear-gradient(135deg, #1f1f3d, #0e0e25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #f1f1f1;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+  
+  .table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    background-color: #2a2a52;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .table th {
+    background: #0757ad;
+    color: #fff700;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .table td {
+    padding: 1rem;
+    font-size: 0.95rem;
+    color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .borrowBtn {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    font-weight: 500;
+  }
+  
+  .borrowBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0056b3, #0093dd);
+    transform: scale(1.05);
+  }
+  
+  .borrowBtn:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
+  .returnBtn {
+    background: linear-gradient(135deg, #28a745, #64e784);
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    font-weight: 500;
+  }
+  
+  .returnBtn:hover {
+    background: linear-gradient(135deg, #1c7c35, #52d273);
+    transform: scale(1.05);
+  }
+  
+  .error {
+    color: #ff4d4f;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    background: #fff0f0;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ffcccc;
+  }
+  
