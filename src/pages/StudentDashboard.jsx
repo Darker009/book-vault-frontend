@@ -42,10 +42,10 @@ const StudentDashboard = () => {
   }, []);
 
   const canBorrow = (book) => {
-    const activeBorrows = borrowedBooks.filter((b) => !b.returned).length;
-    return book.quantity > 0 && activeBorrows < 3;
+    const activeBorrows = borrowedBooks.filter((b) => !b.returned);
+    const alreadyBorrowed = activeBorrows.some((b) => b.book.id === book.id);
+    return book.quantity > 0 && activeBorrows.length < 3 && !alreadyBorrowed;
   };
-
 
   const handleBorrow = async (bookId) => {
     try {
@@ -92,7 +92,7 @@ const StudentDashboard = () => {
             🟢 Available: {books.reduce((sum, b) => sum + b.quantity, 0)}
           </div>
           <div className={styles.statCard}>
-            🔓 Borrow Slots Left: {3 - borrowedBooks.length}
+            🔓 Borrow Slots Left: {3 - borrowedBooks.filter((b) => !b.returned).length}
           </div>
         </div>
 
@@ -139,8 +139,9 @@ const StudentDashboard = () => {
                   ? "Out of Stock"
                   : borrowedBooks.filter((b) => !b.returned).length >= 3
                     ? "Limit Reached"
-                    : "Borrow"}
-
+                    : borrowedBooks.some((b) => !b.returned && b.book.id === book.id)
+                      ? "Already Borrowed"
+                      : "Borrow"}
               </button>
             </div>
           ))}

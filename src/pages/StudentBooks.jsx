@@ -14,9 +14,9 @@ const StudentBooks = () => {
     try {
       const data = await BookService.getAllBooks(token);
       setBooks(data);
-      setLoading(false);
     } catch (err) {
       setError("Failed to load books.");
+    } finally {
       setLoading(false);
     }
   };
@@ -33,20 +33,18 @@ const StudentBooks = () => {
   const handleBorrow = async (bookId) => {
     try {
       await BookService.borrowBook(bookId, token);
-      fetchBooks();
-      fetchBorrowedBooks();
+      await fetchBooks();
+      await fetchBorrowedBooks();
     } catch (err) {
       alert("Borrowing failed. Check limits or availability.");
     }
   };
 
-  const handleReturn = async (bookId) => {
-    const borrowedEntry = borrowedBooks.find(b => b.bookId === bookId);
-    if (!borrowedEntry) return alert("Borrow record not found.");
+  const handleReturn = async (borrowId) => {
     try {
-      await BookService.returnBook(borrowedEntry.id, token);
-      fetchBooks();
-      fetchBorrowedBooks();
+      await BookService.returnBook(borrowId, token);
+      await fetchBooks();
+      await fetchBorrowedBooks();
     } catch (err) {
       alert("Returning failed.");
     }
@@ -56,8 +54,6 @@ const StudentBooks = () => {
     fetchBooks();
     fetchBorrowedBooks();
   }, []);
-
-  const borrowedBookIds = borrowedBooks.map(b => b.bookId);
 
   return (
     <div className={styles.container}>
@@ -81,18 +77,21 @@ const StudentBooks = () => {
           </thead>
           <tbody>
             {books.map((book) => {
-              const isBorrowed = borrowedBookIds.includes(book.id);
+              const borrowedEntry = borrowedBooks.find(
+                (b) => b.book.id === book.id && !b.returned
+              );
+
               return (
                 <tr key={book.id}>
                   <td>{book.title}</td>
                   <td>{book.author}</td>
                   <td>{book.genre}</td>
-                  <td>{book.available ? "Yes" : "No"}</td>
+                  <td>{book.quantity > 0 ? "Yes" : "No"}</td>
                   <td>
-                    {isBorrowed ? (
+                    {borrowedEntry ? (
                       <button
                         className={styles.returnBtn}
-                        onClick={() => handleReturn(book.id)}
+                        onClick={() => handleReturn(borrowedEntry.id)}
                       >
                         Return
                       </button>
@@ -100,7 +99,7 @@ const StudentBooks = () => {
                       <button
                         className={styles.borrowBtn}
                         onClick={() => handleBorrow(book.id)}
-                        disabled={!book.available}
+                        disabled={book.quantity <= 0}
                       >
                         Borrow
                       </button>
