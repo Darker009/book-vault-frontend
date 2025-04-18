@@ -8,7 +8,8 @@ const AddBook = () => {
     title: '',
     author: '',
     section: '',
-    quantity: ''
+    quantity: '',
+    tags: '' // Added field for tags
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -35,7 +36,8 @@ const AddBook = () => {
         title: '',
         author: '',
         section: '',
-        quantity: ''
+        quantity: '',
+        tags: '' // Resetting tags after success
       });
       setTimeout(() => {
         navigate('/admin/books');
@@ -98,6 +100,17 @@ const AddBook = () => {
             onChange={handleChange}
             min="1"
             required
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="tags">Tags (Optional):</label>
+          <input
+            type="text"
+            id="tags"
+            name="tags"
+            value={bookData.tags}
+            onChange={handleChange}
           />
         </div>
 

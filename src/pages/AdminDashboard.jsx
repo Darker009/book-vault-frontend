@@ -47,7 +47,7 @@ const AdminDashboard = () => {
     <div className={styles.container}>
       <h2 className={styles.heading}>Welcome, Admin!</h2>
       <p className={styles.subheading}>Here's a quick snapshot of your library.</p>
-
+  
       {/* 📊 Stats Cards */}
       <div className={styles.statsSection}>
         <div className={styles.statCard}>📚 Total Books: {books.length}</div>
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
         <div className={styles.statCard}>📖 Borrowed Books: {totalBorrowed}</div>
         <div className={styles.statCard}>🟢 Total Available: {totalAvailable}</div>
       </div>
-
+  
       {/* 🥧 Chart */}
       <div className={styles.chartContainer}>
         <PieChart width={250} height={250}>
@@ -73,25 +73,6 @@ const AdminDashboard = () => {
           <Tooltip />
           <Legend />
         </PieChart>
-      </div>
-
-      {/* 🔘 Action Buttons */}
-      <div className={styles.buttonGroup}>
-        <Link to="/admin/books" className={styles.dashboardButton}>
-          📚 Manage Books
-        </Link>
-        <Link to="/admin/students" className={styles.dashboardButton}>
-          👥 View Students
-        </Link>
-        <Link to="/admin/stats" className={styles.dashboardButton}>
-          📊 View Detailed Stats
-        </Link>
-        <Link to="/admin/borrows" className={styles.dashboardButton}>
-          🔁 Borrow Records
-        </Link>
-        <Link to="/admin/recommendations" className={styles.dashboardButton}>
-          📈 Book Recommendations
-        </Link>
       </div>
     </div>
   );

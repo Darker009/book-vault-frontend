@@ -19,11 +19,13 @@
   top: 0;
   left: 0;
   z-index: 0;
-  background:
+  background: 
     radial-gradient(circle at 25% 35%, rgba(255, 215, 0, 0.07) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.04) 0%, transparent 45%);
+  animation: gradientPulse 15s ease infinite alternate;
 }
 
+/* Typography */
 .title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -32,6 +34,7 @@
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   z-index: 1;
   position: relative;
+  animation: fadeInDown 0.8s ease-out;
 }
 
 .subtitle {
@@ -42,10 +45,11 @@
   max-width: 600px;
   z-index: 1;
   position: relative;
+  animation: fadeIn 1s ease-out 0.3s both;
 }
 
-.successMessage,
-.errorMessage {
+/* Messages */
+.successMessage, .errorMessage {
   margin: 1rem auto;
   padding: 1rem 1.5rem;
   border-radius: 10px;
@@ -55,18 +59,20 @@
   text-align: center;
   z-index: 1;
   position: relative;
+  animation: fadeInUp 0.5s ease-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .successMessage {
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(76, 175, 80, 0.15);
   color: #9effa1;
-  border: 1px solid #9effa1;
+  border: 1px solid rgba(76, 175, 80, 0.3);
 }
 
 .errorMessage {
-  background: rgba(244, 67, 54, 0.1);
+  background: rgba(244, 67, 54, 0.15);
   color: #ff7b7b;
-  border: 1px solid #ff7b7b;
+  border: 1px solid rgba(244, 67, 54, 0.3);
 }
 
 /* Stats Section */
@@ -78,6 +84,8 @@
   z-index: 1;
   position: relative;
   margin-bottom: 2rem;
+  width: 100%;
+  animation: fadeIn 0.8s ease-out 0.4s both;
 }
 
 .statsCards {
@@ -85,19 +93,30 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  width: 100%;
+  max-width: 900px;
 }
 
 .statCard {
-  background: #ffffff10;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
+  background: rgba(255, 232, 92, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
   color: #ffe85c;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
   min-width: 180px;
   text-align: center;
+  border: 1px solid rgba(255, 232, 92, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  flex: 1 1 200px;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 232, 92, 0.2);
+  background: rgba(255, 232, 92, 0.15);
 }
 
 /* Chart Container */
@@ -106,99 +125,323 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 300px;
 }
 
-/* Section titles */
+/* Section styles */
 .section {
   margin-top: 3rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   z-index: 1;
   position: relative;
+  animation: fadeIn 0.8s ease-out 0.5s both;
 }
 
 .section h3 {
   font-size: 1.6rem;
   color: #ffe85c;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-/* Book Cards */
-.bookList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  justify-content: center;
+.section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffe85c, transparent);
+  border-radius: 3px;
 }
 
+/* Book Slider */
+.bookSlider {
+  width: 100%;
+  padding: 0 30px;
+  margin-top: 2rem;
+}
+
+.slick-slide {
+  padding: 15px;
+  transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.slick-slide:not(.slick-center) {
+  transform: scale(0.95);
+  opacity: 0.7;
+}
+
+.slick-slide.slick-center {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.slick-list {
+  padding: 30px 0;
+  margin: 0 -15px;
+  overflow: visible;
+}
+
+/* Book Card */
 .bookCard {
-  background: #ffffff0a;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  width: 260px;
-  color: #f5f5f5;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
-  transition: transform 0.2s ease;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 300px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 0 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bookCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffe85c, #ffdf1b);
+  transition: all 0.4s ease;
 }
 
 .bookCard:hover {
-  transform: scale(1.02);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.12);
 }
 
-/* Borrow / Return Buttons */
-.borrowButton,
-.returnButton {
-  margin-top: 0.8rem;
-  width: 100%;
-  padding: 0.7rem 1rem;
-  font-weight: 600;
+.bookCard:hover::before {
+  height: 6px;
+}
+
+.bookInfo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bookTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #ffe85c;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bookAuthor {
+  color: #cccccc;
   font-size: 1rem;
-  border: none;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.bookMetaContainer {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
   border-radius: 8px;
-  background: linear-gradient(135deg, #ffe85c, #fff78b);
-  color: #121230;
+  margin-top: auto;
+  backdrop-filter: blur(5px);
+}
+
+.bookMeta {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.bookMeta::before {
+  content: '•';
+  margin-right: 8px;
+  color: #ffe85c;
+  font-size: 1.2rem;
+}
+
+/* Slider Navigation */
+.slick-prev, .slick-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 232, 92, 0.2) !important;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  z-index: 2;
   transition: all 0.3s ease;
+  border: none;
+  color: #ffe85c;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.borrowButton:disabled {
-  background: #888888;
-  cursor: not-allowed;
-  color: #ddd;
+.slick-prev:hover, .slick-next:hover {
+  background: rgba(255, 232, 92, 0.4) !important;
+  transform: scale(1.1);
 }
 
-.borrowButton:hover:not(:disabled),
-.returnButton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(255, 255, 0, 0.3);
+.slick-prev {
+  left: -25px !important;
 }
 
-/* Responsive Styles */
+.slick-next {
+  right: -25px !important;
+}
+
+.slick-prev::before, .slick-next::before {
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  color: #ffe85c !important;
+  opacity: 1 !important;
+}
+
+.slick-dots {
+  bottom: -10px !important;
+}
+
+.slick-dots li button:before {
+  color: #ffe85c !important;
+  opacity: 0.5 !important;
+  font-size: 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ffe85c !important;
+  opacity: 1 !important;
+  font-size: 12px !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientPulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .bookCard {
+    height: 280px;
+    padding: 1.5rem;
+  }
+  
+  .bookTitle {
+    font-size: 1.3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .dashboardContainer {
+    padding: 2rem 1rem;
+  }
+  
   .title {
     font-size: 2rem;
   }
+  
+  .statCard {
+    min-width: 160px;
+    padding: 1.2rem;
+  }
+  
+  .bookCard {
+    height: 260px;
+  }
+  
+  .slick-prev, .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slick-prev {
+    left: -15px !important;
+  }
+  
+  .slick-next {
+    right: -15px !important;
+  }
+}
 
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
   .subtitle {
     font-size: 1rem;
-    padding: 0 1rem;
   }
-
+  
   .statCard {
-    width: 100%;
-    max-width: 300px;
+    flex: 1 1 100%;
   }
-
+  
   .bookCard {
-    width: 100%;
-    max-width: 90%;
+    height: 240px;
+    padding: 1.2rem;
   }
-
-  .chartContainer {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 2rem;
+  
+  .bookTitle {
+    font-size: 1.2rem;
+  }
+  
+  .bookAuthor {
+    font-size: 0.9rem;
   }
 }

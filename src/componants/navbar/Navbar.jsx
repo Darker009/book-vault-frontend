@@ -50,7 +50,7 @@ const Navbar = () => {
             )}
             {user && role === "ROLE_ADMIN" && (
               <>
-              <li className="nav-item">
+                <li className="nav-item">
                   <Link className={`nav-link ${styles.navLink}`} to="/admin-dashboard" onClick={() => setIsOpen(false)}>
                     Dashboard
                   </Link>
@@ -62,7 +62,27 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link className={`nav-link ${styles.navLink}`} to="/admin/books" onClick={() => setIsOpen(false)}>
-                    Books
+                    Manage Books
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className={`nav-link ${styles.navLink}`} to="/admin/students" onClick={() => setIsOpen(false)}>
+                    View Students
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className={`nav-link ${styles.navLink}`} to="/admin/stats" onClick={() => setIsOpen(false)}>
+                    Stats
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className={`nav-link ${styles.navLink}`} to="/admin/borrows" onClick={() => setIsOpen(false)}>
+                    Borrow Records
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className={`nav-link ${styles.navLink}`} to="/admin/recommendations" onClick={() => setIsOpen(false)}>
+                    Recommendations
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -72,6 +92,7 @@ const Navbar = () => {
                 </li>
               </>
             )}
+
             {user && role === "ROLE_STUDENT" && (
               <>
                 <li className="nav-item">
@@ -89,7 +110,7 @@ const Navbar = () => {
                     Books
                   </Link>
                 </li>
-                
+
                 <li className="nav-item">
                   <button className={`btn ${styles.logoutBtn}`} onClick={handleLogout}>
                     Logout

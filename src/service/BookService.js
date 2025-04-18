@@ -86,14 +86,10 @@ const BookService = {
   },
 
   getBorrowedBooks: async (token) => {
-    try {
-      const response = await api.get("/books/borrowed", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      return response.data;
-    } catch (error) {
-      throw error.response?.data?.message || "Failed to fetch borrowed books";
-    }
+    const res = await api.get("/books/admin/borrowed/active", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return res.data;
   },
   getAllStudents: async (token) => {
     const response = await api.get("/auth/students", {
@@ -116,9 +112,7 @@ const BookService = {
 
   getAllBorrows: async (token) => {
     const res = await api.get("/books/admin/borrowed", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
     return res.data;
   },
@@ -129,6 +123,7 @@ const BookService = {
     });
     return res.data;
   },
+  
   
 };
 export default BookService;

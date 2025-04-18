@@ -14,7 +14,7 @@ const AdminBooks = () => {
       const data = await BookService.getAllBooks(token);
       setBooks(data);
     } catch (err) {
-      setError(err.message);
+      setError("Failed to load books");
     }
   };
 
@@ -31,7 +31,7 @@ const AdminBooks = () => {
       await BookService.deleteBook(id, token);
       fetchBooks();
     } catch (err) {
-      setError(err.message);
+      setError("Failed to delete book");
     }
   };
 
@@ -58,6 +58,9 @@ const AdminBooks = () => {
               <th>Title</th>
               <th>Author</th>
               <th>Section</th>
+              <th>Quantity</th>
+              <th>Tags</th>
+              <th>Borrow Count</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -67,6 +70,9 @@ const AdminBooks = () => {
                 <td>{book.title}</td>
                 <td>{book.author}</td>
                 <td>{book.section}</td>
+                <td>{book.quantity}</td>
+                <td>{book.tags || "N/A"}</td>
+                <td>{book.borrowCount}</td>
                 <td>
                   <button className={styles.editButton} onClick={() => handleEdit(book.id)}>
                     ✏️ Edit

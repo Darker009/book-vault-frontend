@@ -7,11 +7,17 @@ const AdminRecommendations = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const fetchRecommendations = async () => {
+  // Fetching book recommendations
+  const fetchRecommendations = async (bookId) => {
     setLoading(true);
     try {
-      const data = await RecommendationService.getRecommendations();
-      setRecommendations(data);
+      const data = await RecommendationService.getRecommendations(bookId);
+      console.log(data);
+      if (Array.isArray(data)) {
+        setRecommendations(data);
+      } else {
+        setError("Invalid data format received.");
+      }
     } catch (err) {
       setError("Failed to load recommendations.");
     } finally {
@@ -19,8 +25,10 @@ const AdminRecommendations = () => {
     }
   };
 
+  // Fetch recommendations when the component mounts
   useEffect(() => {
-    fetchRecommendations();
+    const bookId = 1; // Replace with the dynamic value for the bookId
+    fetchRecommendations(bookId);
   }, []);
 
   return (
@@ -46,11 +54,15 @@ const AdminRecommendations = () => {
               <tr key={index}>
                 <td>{rec.bookTitle}</td>
                 <td>
-                  {rec.recommendedBooks.map((title, i) => (
-                    <span key={i} className={styles.badge}>
-                      {title}
-                    </span>
-                  ))}
+                  {rec.recommendedBooks && rec.recommendedBooks.length > 0 ? (
+                    rec.recommendedBooks.map((title, i) => (
+                      <span key={i} className={styles.badge}>
+                        {title}
+                      </span>
+                    ))
+                  ) : (
+                    <span>No recommendations available</span>
+                  )}
                 </td>
               </tr>
             ))}

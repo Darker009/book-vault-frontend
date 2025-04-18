@@ -48,7 +48,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/student/profile/edit"
           element={
@@ -57,16 +56,16 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-        <Route 
-          path="/student/books" 
-          element={<ProtectedRoute allowedRoles={["ROLE_STUDENT"]}>
-            <StudentBooks />
-          </ProtectedRoute>
-        }
+        <Route
+          path="/student/books"
+          element={
+            <ProtectedRoute allowedRoles={["ROLE_STUDENT"]}>
+              <StudentBooks />
+            </ProtectedRoute>
+          }
         />
 
-
+        {/* Admin Routes */}
         <Route
           path="/admin-dashboard"
           element={
@@ -115,7 +114,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/admin/stats"
           element={
@@ -132,7 +130,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/admin/recommendations"
           element={

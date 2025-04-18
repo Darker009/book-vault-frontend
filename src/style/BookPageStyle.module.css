@@ -1,0 +1,71 @@
+.bookPageContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .bookList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .bookCard {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bookInfo h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .bookInfo p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .borrowButton {
+    background-color: #4ecdc4;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .borrowButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .borrowedBooks {
+    margin-top: 30px;
+  }
+  
+  .borrowedBookCard {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .returnButton {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
