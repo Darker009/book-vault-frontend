@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://bookvault-fdwh.onrender.com/api",
 });
 
 // ✅ Add token to every request automatically

@@ -118,11 +118,9 @@ const StudentDashboard = () => {
         </div>
       </div>
 
-      {/* 📚 Available Books Slider Section */}
       <div className={styles.section}>
         <h3>Available Books</h3>
         
-        {/* Books in Enhanced Slider */}
         <Slider {...sliderSettings}>
           {books.map((book) => (
             <div key={book.id} className={styles.bookCard}>
@@ -140,7 +138,6 @@ const StudentDashboard = () => {
         </Slider>
       </div>
 
-      {/* 📘 Borrowed Books Section */}
       {borrowedBooks.length > 0 && (
         <div className={styles.section}>
           <h3>Your Borrowed Books</h3>
