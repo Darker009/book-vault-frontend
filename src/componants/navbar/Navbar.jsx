@@ -17,7 +17,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-dark ${styles.navbarCustom}`}>
+    <nav
+      className={`navbar navbar-expand-lg navbar-dark ${styles.navbarCustom}`}
+    >
       <div className="container-fluid">
         <Link className={`navbar-brand ${styles.brand}`} to="/">
           📚 Book Vault
@@ -32,17 +34,29 @@ const Navbar = () => {
           <span className={styles.togglerIcon}></span>
           <span className={styles.togglerIcon}></span>
         </button>
-        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''} ${styles.navbarCollapse}`}>
+        <div
+          className={`collapse navbar-collapse ${isOpen ? "show" : ""} ${
+            styles.navbarCollapse
+          }`}
+        >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             {!user && (
               <>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/login" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/login"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Login
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/register" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/register"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Register
                   </Link>
                 </li>
@@ -51,42 +65,65 @@ const Navbar = () => {
             {user && role === "ROLE_ADMIN" && (
               <>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/admin-dashboard" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/admin-dashboard"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Dashboard
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/admin/profile" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/admin/profile"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Profile
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/admin/books" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/admin/books"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Manage Books
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/admin/students" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/admin/students"
+                    onClick={() => setIsOpen(false)}
+                  >
                     View Students
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/admin/stats" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/admin/stats"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Stats
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/admin/borrows" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/admin/borrows"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Borrow Records
                   </Link>
                 </li>
+
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/admin/recommendations" onClick={() => setIsOpen(false)}>
-                    Recommendations
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <button className={`btn ${styles.logoutBtn}`} onClick={handleLogout}>
+                  <button
+                    className={`btn ${styles.logoutBtn}`}
+                    onClick={handleLogout}
+                  >
                     Logout
                   </button>
                 </li>
@@ -96,23 +133,49 @@ const Navbar = () => {
             {user && role === "ROLE_STUDENT" && (
               <>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/student-dashboard" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/student-dashboard"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Dashboard
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/student/profile" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/student/profile"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Profile
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className={`nav-link ${styles.navLink}`} to="/student/books" onClick={() => setIsOpen(false)}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/student/books"
+                    onClick={() => setIsOpen(false)}
+                  >
                     Books
                   </Link>
                 </li>
 
+                {/* Recommendation Button for Students */}
                 <li className="nav-item">
-                  <button className={`btn ${styles.logoutBtn}`} onClick={handleLogout}>
+                  <Link
+                    className={`nav-link ${styles.navLink}`}
+                    to="/student/recommendations"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Recommendations
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <button
+                    className={`btn ${styles.logoutBtn}`}
+                    onClick={handleLogout}
+                  >
                     Logout
                   </button>
                 </li>

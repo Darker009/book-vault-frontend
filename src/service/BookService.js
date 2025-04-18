@@ -1,106 +1,101 @@
 import api from "./api";
 
 const BookService = {
-  getAllBooks: async (token) => {
+  // Fetch all books
+  getAllBooks: async () => {
     try {
-      const response = await api.get("/books", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await api.get("/books");
       return response.data;
     } catch (error) {
       throw error.response?.data?.message || "Failed to fetch books";
     }
   },
 
-  getBookById: async (id, token) => {
+  // Get book details by ID
+  getBookById: async (id) => {
     try {
-      const response = await api.get(`/books/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await api.get(`/books/${id}`);
       return response.data;
     } catch (error) {
       throw error.response?.data?.message || "Failed to fetch book";
     }
   },
 
-  addBook: async (book, token) => {
+  // Add a new book (Admin only)
+  addBook: async (book) => {
     try {
-      const response = await api.post("/books", book, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await api.post("/books", book);
       return response.data;
     } catch (error) {
       throw error.response?.data?.message || "Failed to add book";
     }
   },
 
-  updateBook: async (id, updatedBook, token) => {
+  // Update existing book by ID (Admin only)
+  updateBook: async (id, updatedBook) => {
     try {
-      const response = await api.put(`/books/${id}`, updatedBook, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await api.put(`/books/${id}`, updatedBook);
       return response.data;
     } catch (error) {
       throw error.response?.data?.message || "Failed to update book";
     }
   },
 
-  deleteBook: async (id, token) => {
+  // Delete a book by ID (Admin only)
+  deleteBook: async (id) => {
     try {
-      const response = await api.delete(`/books/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await api.delete(`/books/${id}`);
       return response.data;
     } catch (error) {
       throw error.response?.data?.message || "Failed to delete book";
     }
   },
-  borrowBook: async (bookId, token) => {
+
+  // Borrow a book by bookId (Student)
+  borrowBook: async (bookId) => {
     try {
-      const response = await api.post(
-        `/books/borrow/${bookId}`,
-        {},
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await api.post(`/books/borrow/${bookId}`);
       return response.data;
     } catch (error) {
       throw error.response?.data?.message || "Failed to borrow book";
     }
   },
 
-  returnBook: async (borrowId, token) => {
+  // Return a book by borrowId (Student)
+  returnBook: async (borrowId) => {
     try {
-      const response = await api.post(
-        `/books/return/${borrowId}`,
-        {},
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await api.post(`/books/return/${borrowId}`);
       return response.data;
     } catch (error) {
       throw error.response?.data?.message || "Failed to return book";
     }
   },
 
-  getBorrowedBooks: async (token) => {
-    const res = await api.get("/books/admin/borrowed/active", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return res.data;
-  },
-  getAllStudents: async (token) => {
-    const response = await api.get("/auth/students", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
+  // Get active borrowed books based on role
+  getBorrowedBooks: async (role) => {
+    try {
+      const endpoint =
+        role === "ROLE_ADMIN"
+          ? "/books/admin/borrowed/active"
+          : "/books/borrowed";
+      const response = await api.get(endpoint);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data?.message || "Failed to fetch borrowed books";
+    }
   },
 
-  // BookService.js
+  // Get all registered students (Admin)
+  getAllStudents: async () => {
+    try {
+      const response = await api.get("/auth/students");
+      return response.data;
+    } catch (error) {
+      throw error.response?.data?.message || "Failed to fetch students";
+    }
+  },
+
+  // Fetch dashboard summary statistics (Admin)
   getSummaryStats: async () => {
     try {
       const response = await api.get("/stats/summary");
@@ -110,20 +105,25 @@ const BookService = {
     }
   },
 
-  getAllBorrows: async (token) => {
-    const res = await api.get("/books/admin/borrowed", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return res.data;
+  // Get all borrow records (Admin)
+  getAllBorrows: async () => {
+    try {
+      const response = await api.get("/books/admin/borrowed");
+      return response.data;
+    } catch (error) {
+      throw error.response?.data?.message || "Failed to fetch borrow records";
+    }
   },
 
-  getRecommendations: async (bookId, k = 5, token) => {
-    const res = await api.get(`/recommendations/${bookId}?k=${k}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return res.data;
+  // Get book recommendations based on bookId
+  getRecommendations: async (bookId, k = 5) => {
+    try {
+      const response = await api.get(`/recommendations/${bookId}?k=${k}`);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data?.message || "Failed to fetch recommendations";
+    }
   },
-  
-  
 };
+
 export default BookService;

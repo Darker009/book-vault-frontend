@@ -15,7 +15,6 @@ import EditStudentProfile from "./pages/EditStudentProfile";
 import AdminStudents from "./pages/AdminStudents";
 import AdminStats from "./pages/AdminStats";
 import AdminBorrows from "./pages/AdminBorrows";
-import AdminRecommendations from "./pages/AdminRecommendations";
 import StudentBooks from "./pages/StudentBooks";
 
 function App() {
@@ -130,14 +129,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/admin/recommendations"
-          element={
-            <ProtectedRoute allowedRoles={["ROLE_ADMIN"]}>
-              <AdminRecommendations />
-            </ProtectedRoute>
-          }
-        />
+       
 
         {/* Fallback Route */}
         <Route path="*" element={<Navigate to="/login" replace />} />

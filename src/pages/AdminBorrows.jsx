@@ -37,6 +37,7 @@ const AdminBorrows = () => {
               <th>Borrowed On</th>
               <th>Due Date</th>
               <th>Status</th>
+              <th>Returned On</th> {/* Added Returned On column */}
             </tr>
           </thead>
           <tbody>
@@ -49,6 +50,7 @@ const AdminBorrows = () => {
                 <td className={b.overdue ? styles.overdue : ""}>
                   {b.overdue ? "Overdue" : "On Time"}
                 </td>
+                <td>{b.returned ? "Return" : "Not Returned"}</td> {/* Show return date if book is returned */}
               </tr>
             ))}
           </tbody>

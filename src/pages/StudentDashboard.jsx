@@ -118,7 +118,7 @@ const StudentDashboard = () => {
         </div>
       </div>
 
-      {/* 📚 Books Slider Section */}
+      {/* 📚 Available Books Slider Section */}
       <div className={styles.section}>
         <h3>Available Books</h3>
         
@@ -139,6 +139,28 @@ const StudentDashboard = () => {
           ))}
         </Slider>
       </div>
+
+      {/* 📘 Borrowed Books Section */}
+      {borrowedBooks.length > 0 && (
+        <div className={styles.section}>
+          <h3>Your Borrowed Books</h3>
+          <div className={styles.borrowedBooksContainer}>
+            {borrowedBooks.map((book) => (
+              <div key={book.id} className={styles.bookCard}>
+                <div className={styles.bookInfo}>
+                  <h4 className={styles.bookTitle}>{book.book?.title}</h4>
+                  <p className={styles.bookAuthor}>By {book.book?.author}</p>
+                  <div className={styles.bookMetaContainer}>
+                    <p className={styles.bookMeta}>Due Date: {book.dueDate}</p>
+                    <p className={styles.bookMeta}>Pickup: {book.pickupMessage || "Not assigned"}</p>
+                    <p className={styles.bookMeta}>Returned: {book.returned ? "Yes" : "No"}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
