@@ -1,0 +1,132 @@
+/* Footer.css */
+.footer {
+  background-color: #203e5f; /* Dark blue background */
+  color: #F1EFEC; /* Light cream text */
+  padding: 3rem 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo .logo-link {
+  color: #F1EFEC;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+.footer-logo .logo-link:hover {
+  color: #9ACBD0; /* Light teal on hover */
+}
+
+.footer-description {
+  color: #D4C9BE; /* Light beige */
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  color: #9FB3DF; /* Light blue for headings */
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links h4::after,
+.footer-contact h4::after,
+.footer-social h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #48A6A7; /* Teal accent */
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-link {
+  color: #D4C9BE; /* Light beige */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #48A6A7; /* Teal on hover */
+}
+
+.footer-contact p {
+  color: #D4C9BE; /* Light beige */
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #F1EFEC;
+  background-color: #48A6A7; /* Teal background */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #9FB3DF; /* Light blue on hover */
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(159, 179, 223, 0.2); /* Light blue with opacity */
+  padding-top: 1.5rem;
+  text-align: center;
+  color: #9ACBD0; /* Light teal */
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-links h4,
+  .footer-contact h4,
+  .footer-social h4 {
+    margin-bottom: 1rem;
+  }
+}

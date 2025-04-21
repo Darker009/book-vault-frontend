@@ -1,0 +1,304 @@
+/* Base Styles */
+.welcome-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #123458; /* Dark blue for text */
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #F1EFEC 0%, #D4C9BE 100%); /* Cream to beige gradient */
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  color: #123458; /* Dark blue */
+}
+
+.highlight {
+  color: #48A6A7; /* Teal for highlights */
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #123458; /* Dark blue with slight opacity */
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(3, 3, 3, 0.1); /* Dark shadow with low opacity */
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #48A6A7; /* Teal */
+  color: #F1EFEC; /* Cream */
+  border: 2px solid #48A6A7; /* Teal */
+}
+
+.btn-primary:hover {
+  background-color: #3a9596; /* Darker teal */
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #48A6A7; /* Teal */
+  border: 2px solid #48A6A7; /* Teal */
+}
+
+.btn-outline:hover {
+  background-color: rgba(72, 166, 167, 0.1); /* Teal with opacity */
+  transform: translateY(-2px);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+/* Features Section */
+.features-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #F1EFEC; /* Cream */
+}
+
+.features-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: #123458; /* Dark blue */
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: white;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(3, 3, 3, 0.05); /* Dark shadow with low opacity */
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(3, 3, 3, 0.1); /* Dark shadow with low opacity */
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #48A6A7; /* Teal */
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #123458; /* Dark blue */
+}
+
+.feature-card p {
+  color: #123458; /* Dark blue */
+}
+
+/* Featured Books Section */
+.featured-books-section {
+  padding: 4rem 2rem;
+  background-color: #D4C9BE; /* Beige */
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  color: #123458; /* Dark blue */
+}
+
+.view-all {
+  display: flex;
+  align-items: center;
+  color: #48A6A7; /* Teal */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.view-all svg {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  color: #48A6A7; /* Teal */
+}
+
+.view-all:hover svg {
+  transform: translateX(3px);
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.book-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(3, 3, 3, 0.05); /* Dark shadow with low opacity */
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+.book-cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.book-info {
+  padding: 1rem;
+}
+
+.book-info h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #123458; /* Dark blue */
+}
+
+.book-author {
+  color: #123458; /* Dark blue with opacity */
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.books-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #123458; /* Dark blue */
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #F1EFEC; /* Cream */
+}
+
+.testimonials-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: #123458; /* Dark blue */
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(3, 3, 3, 0.05); /* Dark shadow with low opacity */
+}
+
+.testimonial-card p {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #123458; /* Dark blue */
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #48A6A7; /* Teal */
+}
+
+/* Final CTA Section */
+.final-cta-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #48A6A7 0%, #3a9596 100%); /* Teal gradient */
+  color: #F1EFEC; /* Cream */
+}
+
+.final-cta-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.final-cta-section p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
+  }
+  
+  .features-grid, .books-grid, .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}

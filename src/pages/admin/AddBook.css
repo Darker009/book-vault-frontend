@@ -1,0 +1,104 @@
+.add-book-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #F1EFEC; /* Cream background */
+}
+
+.add-book-header {
+  color: #123458; /* Dark blue */
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff; /* White form background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(3, 3, 3, 0.05); /* Dark shadow with low opacity */
+}
+
+.add-book-form input[type="text"],
+.add-book-form input[type="number"],
+.add-book-form input[type="file"] {
+  padding: 0.6rem 1rem;
+  border: 1px solid #D4C9BE; /* Beige border */
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.add-book-form input[type="text"]:focus,
+.add-book-form input[type="number"]:focus {
+  outline: none;
+  border-color: #48A6A7; /* Teal */
+  box-shadow: 0 0 0 2px rgba(72, 166, 167, 0.2); /* Teal glow */
+}
+
+.preview-image {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  align-self: start;
+  border: 2px solid #48A6A7; /* Teal border */
+}
+
+.submit-button {
+  background-color: #48A6A7; /* Teal */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.submit-button:hover {
+  background-color: #3a9596; /* Darker teal */
+}
+
+.error,
+.success {
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.error {
+  background-color: rgba(231, 76, 60, 0.1); /* Light red background */
+  color: #e74c3c; /* Keeping red for errors */
+  border: 1px solid #e74c3c;
+}
+
+.success {
+  background-color: rgba(72, 166, 167, 0.1); /* Light teal background */
+  color: #48A6A7; /* Teal for success */
+  border: 1px solid #48A6A7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .add-book-container {
+      padding: 1rem;
+  }
+
+  .add-book-form input,
+  .submit-button {
+      font-size: 0.95rem;
+  }
+
+  .preview-image {
+      width: 80px;
+      height: 110px;
+  }
+}

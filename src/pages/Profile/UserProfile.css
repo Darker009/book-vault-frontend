@@ -1,0 +1,137 @@
+.admin-profile-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #F1EFEC; /* Cream background */
+}
+
+.header-section {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.header-section h2 {
+  color: #123458; /* Dark blue */
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(3, 3, 3, 0.1); /* Dark shadow with low opacity */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-pic-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #48A6A7; /* Teal border */
+  box-shadow: 0 4px 6px rgba(3, 3, 3, 0.1); /* Dark shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F1EFEC; /* Cream background */
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-details {
+  width: 100%;
+  max-width: 500px;
+}
+
+.detail-row {
+  display: flex;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #D4C9BE; /* Beige border */
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #123458; /* Dark blue */
+  min-width: 120px;
+}
+
+.detail-value {
+  color: #123458; /* Dark blue */
+  flex-grow: 1;
+}
+
+.error-message {
+  color: #e74c3c; /* Keeping red for errors */
+  background-color: #fadbd8;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin: 1rem auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #9ACBD0; /* Light teal */
+}
+
+.edit-profile-button {
+  background-color: #48A6A7; /* Teal */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-button:hover {
+  background-color: #3a9596; /* Darker teal */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-card {
+      padding: 1.5rem;
+  }
+  
+  .profile-pic-container {
+      width: 120px;
+      height: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-profile-container {
+      padding: 1rem;
+  }
+  
+  .profile-card {
+      padding: 1rem;
+  }
+  
+  .detail-row {
+      flex-direction: column;
+      gap: 0.3rem;
+  }
+  
+  .detail-label {
+      min-width: auto;
+  }
+}

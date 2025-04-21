@@ -1,0 +1,247 @@
+.admin-books-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #F1EFEC; /* Cream background */
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-section h2 {
+  color: #123458; /* Dark blue */
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search-input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #D4C9BE; /* Beige border */
+  border-radius: 4px;
+  min-width: 250px;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #48A6A7; /* Teal */
+  box-shadow: 0 0 0 2px rgba(72, 166, 167, 0.2); /* Teal glow */
+}
+
+.error-message {
+  color: #e74c3c; /* Keeping red for errors */
+  background-color: rgba(231, 76, 60, 0.1); /* Light red background */
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #e74c3c;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #9ACBD0; /* Light teal */
+}
+
+.add-button {
+  background-color: #48A6A7; /* Teal */
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.add-button:hover {
+  background-color: #3a9596; /* Darker teal */
+}
+
+.empty-message {
+  text-align: center;
+  padding: 2rem;
+  color: #9ACBD0; /* Light teal */
+  font-size: 1.1rem;
+}
+
+.books-table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(3, 3, 3, 0.1); /* Dark shadow */
+  border-radius: 8px;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.books-table th,
+.books-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #D4C9BE; /* Beige border */
+}
+
+.books-table th {
+  background-color: #48A6A7; /* Teal */
+  color: white;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+}
+
+.books-table tr:hover {
+  background-color: rgba(72, 166, 167, 0.1); /* Light teal background */
+}
+
+.cover-cell {
+  width: 60px;
+  min-width: 60px;
+  padding: 0.5rem !important;
+}
+
+.book-cover {
+  max-width: 50px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #D4C9BE; /* Beige border */
+}
+
+.no-cover {
+  width: 50px;
+  height: 70px;
+  background-color: #F1EFEC; /* Cream */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ACBD0; /* Light teal */
+  font-size: 0.8rem;
+  border-radius: 4px;
+  margin: 0 auto;
+  border: 1px dashed #D4C9BE; /* Beige border */
+}
+
+.action-buttons-cell {
+  display: flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.edit-button {
+  background-color: #48A6A7; /* Teal */
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-button:hover {
+  background-color: #3a9596; /* Darker teal */
+}
+
+.delete-button {
+  background-color: #e74c3c; /* Keeping red for delete */
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-button:hover {
+  background-color: #c0392b; /* Darker red */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .books-table th:nth-child(8),
+  .books-table td:nth-child(8),
+  .books-table th:nth-child(9),
+  .books-table td:nth-child(9) {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .books-table th:nth-child(7),
+  .books-table td:nth-child(7) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .controls {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .books-table th:nth-child(4),
+  .books-table td:nth-child(4),
+  .books-table th:nth-child(6),
+  .books-table td:nth-child(6),
+  .books-table th:nth-child(10),
+  .books-table td:nth-child(10) {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .book-cover, .no-cover {
+    max-width: 40px;
+    max-height: 60px;
+  }
+  
+  .cover-cell {
+    width: 50px;
+    min-width: 50px;
+  }
+  
+  .books-table th, 
+  .books-table td {
+    padding: 0.5rem;
+  }
+}
