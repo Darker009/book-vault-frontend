@@ -62,7 +62,7 @@ const AddBook = () => {
       await BookService.addBook(fd);
       
       setSuccess('📚 Book added successfully!');
-      setTimeout(() => nav('/admin/books'), 1500);
+      setTimeout(() => nav('/books'), 1500);
     } catch (err) {
       console.error('Add book error:', err);
       const errorMessage = err.response?.data?.message || 
